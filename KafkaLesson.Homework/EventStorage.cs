@@ -7,6 +7,7 @@ public class EventStorage
     private EventStorage() { }
     
     private readonly List<TestEvent> _processedEvents = [];
+    private readonly List<TestEvent> _consumedEvents = [];
 
     public void AddProcessedEvent(TestEvent ev)
     {
@@ -16,5 +17,15 @@ public class EventStorage
     public List<TestEvent> GetProcessedEvent()
     {
         return _processedEvents.ToList();
+    }
+
+    public void AddConsumedEvent(TestEvent ev)
+    {
+        _consumedEvents.Add(ev);
+    }
+
+    public List<TestEvent> GetConsumedEvent()
+    {
+        return _consumedEvents.ToList();
     }
 }
